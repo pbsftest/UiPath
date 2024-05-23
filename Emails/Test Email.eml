@@ -1,0 +1,125 @@
+Delivered-To: pbsftest@gmail.com
+Received: by 2002:a05:640c:e4a:b0:1f8:1c36:649f with SMTP id u10csp398528eit;
+        Wed, 22 May 2024 08:21:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGgiC2RVbwCB8Acx25sO+48P8pT3tuhiqSCPH570zaBnynmaeKkcgAPrYkVbwiRIlm0ikMw
+X-Received: by 2002:a05:6a21:81a6:b0:1ae:381d:4200 with SMTP id adf61e73a8af0-1b1f88ed375mr2348545637.35.1716391306011;
+        Wed, 22 May 2024 08:21:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1716391305; cv=none;
+        d=google.com; s=arc-20160816;
+        b=dlZxFYRnlcnwk7+N2M9GnTgrKZlompJySmNFjZWN6h7PSowoZVAfvioiV+8ydeWu64
+         FykGLFNHtgTNWqyzaeEXThfazeCvrf9JKo7kMNvBTGu4qRqSJqXkvEFVDm70lpjXCdJe
+         ulhOui7Kd0yNYukC4sn/JEpnK2tZlUTUUoc4lCZ1ANGKhahBK+UCKQWHy/QXh0MkO/Eb
+         xa9TPxorLI+F9V+spY2aFWUqKpJpNJMsBqNpRyeo/EYx+bcreZmgIArQ0EYMMoiLaIjf
+         YGfhhRS5ALpyNPQ9vpp2g65c/dlHR7Es55ZOZ4U46/uAI2bO9BCXf79xwinq6r4UvTc9
+         qJoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=references:content-language:thread-index:mime-version:message-id
+         :date:subject:to:from:dkim-signature;
+        bh=ppjVi0Mu2DJFc2BZZIu6LxJYxm4PXwxApWUTdH3DQmY=;
+        fh=aYXC+sY+Hh5yeptisWYLDukWjjy1YlH8Nx7WSsFZkS8=;
+        b=I7FfLbSwf7wdbZySnjpqR+hjqyYfyeExwJ1CZ/zeEnKb24AG+UILFEB/nw2YQKXG5i
+         CR9ii7ZwN6jQ0l0UnQWddk7fmBHcfnnKk9UHP0VHSbtSlFDZJF0iAznjnsIoiW4/w3LZ
+         ynZwP0s5HMB2JDNUZreenCPR2CEg7DHAkmHPvNv17WgASLNqXN+fnOQakONRvuxWfzGC
+         eHcdn1qzyFUqLpT8epSZ2SCWtiX/yeGf330Oy0/A6Hv5ag/MSKqAdIg/QMVL4DfZnS4m
+         MJ5cx1583a/lwjcc+T+N6PTDnZsJcibziAAT5SANQ/8nYJ95NUoc37z6QbWptrHk0S9h
+         xo7g==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@yahoo.com header.s=s2048 header.b=iAHfzb0n;
+       spf=neutral (google.com: 98.137.68.37 is neither permitted nor denied by best guess record for domain of priya@assureeservices.com) smtp.mailfrom=priya@assureeservices.com
+Return-Path: <priya@assureeservices.com>
+Received: from sonic308-13.consmr.mail.gq1.yahoo.com (sonic308-13.consmr.mail.gq1.yahoo.com. [98.137.68.37])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-65a8da4ad03si3434002a12.641.2024.05.22.08.21.45
+        for <pbsftest@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 May 2024 08:21:45 -0700 (PDT)
+Received-SPF: neutral (google.com: 98.137.68.37 is neither permitted nor denied by best guess record for domain of priya@assureeservices.com) client-ip=98.137.68.37;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@yahoo.com header.s=s2048 header.b=iAHfzb0n;
+       spf=neutral (google.com: 98.137.68.37 is neither permitted nor denied by best guess record for domain of priya@assureeservices.com) smtp.mailfrom=priya@assureeservices.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1716391305; bh=ppjVi0Mu2DJFc2BZZIu6LxJYxm4PXwxApWUTdH3DQmY=; h=From:To:Subject:Date:References:From:Subject:Reply-To; b=iAHfzb0nRhGOUJICFet5pMEr4NzzojUyyXGgvfppYE1rYVeWIN4FT7SVx5tHisEpFg7w7O9B/o1Av/Ba/u95/DSRNAtDjjgAc5Sq4TMztnj1FmfgO1Rcch9LMCKwtIOtQtWlAyfmh4eZY2b4XyvYM2R5JaGYJbgh9vGmnWsw5/KOB4Of7VPELViKNJec93r7ks+Gv9UvLzmWBeUpyXUHaJhNhVOYy/OAscQJtRTK/hPPPpy27UxKy6ZwJ7rXYSQTh0c+KQJA0PYAFOaFvo7Ta+VlB7E8+LPOcotUHKsbAXsPsq5IB5sWGo4ppwyFtC44lFwI914T1a2bs9lPN2wVPw==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1716391305; bh=ejt7IipV/p8j7o9h9ASMGXZV2jXMDw8VKskamfH/o8z=; h=X-Sonic-MF:From:To:Subject:Date:From:Subject; b=U657TvMeaEdc75ExCiTQA9GYqofaO5t25YhlksygN/u5zsUENwpKIi7MiwFasiDbH+jRzW8K2E+jTkqXjv7RUrtB/DOwFK3VatBlsJkkfJg5+JKJle3VyoUO6E53aVLoDJHk3JdMYASyL4+jD/KN73Qi14jmckADNJCc4J5hckoMEj9ZYKz6QrOvBxj9wJL4Msof1b6rYHugMvzIhqqJEUCz/D27A04rPTroT49/OzRCXsCgOVB6f5CRh1KQvYKBUecOecrDBP25IZVYK4ltS61gNZMzTJUZaiqJroz5et2r6lmZqO9E4pBvhX416xyXLPJNk5t2q4ybFckXEbiqYw==
+X-YMail-OSG: 9JPxPgEVM1lk_Z9BtdfnESL2I4I0GKhU8pFY3UsXem.sd5dcVUGnIbFzvenShEP
+ 1W73Y7JNqJ76npsZFtqx_qbCJsbPg8s7VY_22mtZvUHi4b8QXu0bbg13CIx4qnbkKkAexOaXbxRq
+ RTeq.Q6gZWqFB5FKnM3Qtw62fJA2mQFhrB4kQ82EL.SpStEHBHaJEJpQrY8778kkcT06lQ_aqujG
+ ErrS9FxiGcRg2oh9FFnYuBdeUWXk6lovdBibcHsTGdtgiD79NLIIJDZF_T51KXCgawOHBxI8y2SE
+ hlKGXHZiaKNjd5ecdQ0q4fOniK1z3GCjc5PgPfJpDeB8m_bUMT3Dn4czVeiB2sxknkfeGdhNyGVP
+ 2sN.CdH7xL55huWEnDgGc7Mcae.V1L1HFVFmFyOqwj5HmdLLEl.VjNookRonnf4G68ViIg2vUyUH
+ WYgHNEPPmYcHX1WAmV3ds9LK7n8DqPuA_FjBnUYiYp15cnU1ID71I4idDxC.Qpiuayw1GuZXgj4J
+ EubLKJhKlNRgHubB0axyskKnqM3uyLDc8Vor2Gqk8C3tGku2IpoeK5YdhcK8CkSpwkyPNWZ1XH_9
+ 9KdBsjvhSjBCNSN_wMDh3I.rofzcfxaQj6ApKow7rK8ueupjyhwai0pv0AoBf4bXzOpd16LUYvU.
+ e0q2tkfllGm5aO.M4MJlqOh_1j9tQUH9QrYYjt5FmXp7XA1809i_hGlbS_umJB8btJlh.ok2khNM
+ L6P7tuQCvXkSNwggpwI749uWFbA_ewMwz2ZhLP4N62pyriQqzjK2j8oAr0Nk.qlMwzPqWgiLTk..
+ AGAfLkk8QmJB1UvdaqqPjStEg5IXialFQ2CGtWLFNL.1zAqJF3zLf.XfEDg6lx8UmgZV_WK9.EDo
+ 89MS3ZAlckVA2tUuKYlKNIdmBVWoIFyFPFFCGBucmAPwG31peZ.XxQ2OUv1SOeFiHwie3Et0E7vE
+ d9iuK.BdOpMidTqO6NbIn2XbNzRGQmmVSrI7ltIrTO1sq05mbkbqDrafFyfBair5HT76EtlCBxir
+ VddBjnql5qy1zN605dof.uWnv4iG6cHwRf9P50yO7GnydZUb6vbzYow.P5MeNBp_5rezMDvVHMxg
+ GbBhwGb.6Em1x6t.tJ5ND9uaNILF4S8tTia1WPUAIWSELc9T6U_6BI0bqnR9nBO.hTUDhoVFx6o_
+ cF6twtxC4zpecsqywftrFCqe.wzefdVD5UsPuXiNWKwlPtcsvwymW8w9Wh6_GJfpCZS3TWF6jR8.
+ i.NcmlT7WsKVqHbHdsyLfTeKsx5CrwGWpW1OClqB3sqMCD7c3X.by3jPa7l.B3H3fortXhKZgHGt
+ o15mq5r58C2arXEzVwNkyU.jA.Z6H37IZhrDo1t9hzqCVJMQ3hDA5Q9LJvtz4Hh1_Meu1UR4BS9z
+ E3NdWr6rR5K5x5NH222cU483UoXZJSBDSRfA4NEhcJh96eHxcYicMwFCvfARK2EXdT0d1VisACe9
+ 3UlwAMxpEt3Cb6rOnGx2wySTR6l.NfwGQ2W4Pz2ehF_zFSF0uIfPqHn1ePjz8aUnMOaF5X_wA1vS
+ _JCvr2ZKYh4wTQiiFLrh4E1h8BmZNFt298n1m0dr68olx3jPzmLA4kJ1l3ectNk.6IqhsAlTchAD
+ zOXH24TSxnPj8jvIMnCzJtFKPNi.a.W7i0BaNkoi3PvxUwtQ2aX9StfEXj7OZqtuH8b8O9ZOLN8Y
+ RY0FA0MISn1Nhzvr.JN_5aaB5b9XeD4RNTYopdIjg5qb67NvYGWQjB.0Sj7700p3rUPNXlAwitNf
+ 7DYC77RdpIDOn7JmPNYebfkLx3poaiuCWwXGLqMSpKSknu5N1UrbLc4LhoPVzUuH8Op3nYKcPD6M
+ BG85KolX.dILAJNufnd6lAzuStXvfD3UOVPd19RzIcjB9Kz3ADec5FH8W8uPJPWZZ0BCE7WSmkII
+ emS5L72cqE9F9LKlLhLwakJFoEDQYOBUXnjl5j460mt9KkzngoBPPbbpY8VUQth5rK3Z9.ojvGE2
+ 3OvnfNSquXDx1gXc6g8mX7jzEFiIZs956U1qLp4FVnHysB6dlBQ_WqCz1IEyIFj2LwIFMGBBobBW
+ fIGUqX6GkpTl7mcsupk_WXkfQqSuOg2miiUnlRNUWCX.7sDS4BOlLo1DhJ_bCl.Bfuj2PeXGZJV3
+ 6rFYAvC0KZRa_QaWE.21YvHcrtLJxOEAH4K4bTwObl52XI.joByzFWFJpLSxpcr_Mj2hAo.RI6G_
+ LBlYHI4cf3Sit4jZSdGbPpCpamHwN1rX9Uni1pMazK4TdaWqcbQ--
+X-Sonic-MF: <priya@assureeservices.com>
+X-Sonic-ID: 963f6fe6-7200-41f5-93bd-2708f5eec2a1
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic308.consmr.mail.gq1.yahoo.com with HTTP; Wed, 22 May 2024 15:21:45 +0000
+Received: by hermes--production-bf1-5cc9fc94c8-wzf6r (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 5b6698f1c0f2fd56b953ae6f9281c810;
+          Wed, 22 May 2024 15:21:39 +0000 (UTC)
+From: <priya@assureeservices.com>
+To: <pbsftest@gmail.com>
+Subject: Test Email
+Date: Wed, 22 May 2024 11:21:36 -0400
+Message-ID: <008601daac5b$bd257140$377053c0$@assureeservices.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0087_01DAAC3A.3613D140"
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AdqsW7w1yomOYy/cQLW4wMFAh88FdQ==
+Content-Language: en-us
+References: <008601daac5b$bd257140$377053c0$.ref@assureeservices.com>
+Content-Length: 724
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_0087_01DAAC3A.3613D140
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Test Mail 
+
+
+------=_NextPart_000_0087_01DAAC3A.3613D140
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; =
+charset=3Dus-ascii">
+<META NAME=3D"Generator" CONTENT=3D"MS Exchange Server version =
+16.0.17531.20004">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<!-- Converted from text/rtf format -->
+
+<P><FONT FACE=3D"Aptos">Test Mail</FONT>
+</P>
+
+</BODY>
+</HTML>
+------=_NextPart_000_0087_01DAAC3A.3613D140--
+
